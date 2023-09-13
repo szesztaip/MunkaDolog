@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TermékekAPI", "TermékekAPI.csproj", "{68D883B3-5004-45D2-A64C-3E0C82FA0F81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68D883B3-5004-45D2-A64C-3E0C82FA0F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D883B3-5004-45D2-A64C-3E0C82FA0F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D883B3-5004-45D2-A64C-3E0C82FA0F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D883B3-5004-45D2-A64C-3E0C82FA0F81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25A8A3F5-94FA-41FF-91C2-ACBA80462A8F}
+	EndGlobalSection
+EndGlobal
