@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using static ProductApi.Dtos;
 
 namespace ProductApi.Controllers
@@ -9,31 +10,67 @@ namespace ProductApi.Controllers
     public class ProductController : ControllerBase
     {
 
-        private static readonly List<ProductDto> products = new()
-        {
-            new ProductDto(Guid.NewGuid(),"Termék1",3500,DateTimeOffset.UtcNow),
-            new ProductDto(Guid.NewGuid(),"Termék2",2500,DateTimeOffset.UtcNow),
-            new ProductDto(Guid.NewGuid(),"Termék3",1500,DateTimeOffset.UtcNow)
-
-        };
+        private List<ProductDto> products = new List<ProductDto>();
         
         [HttpGet]
-        public IEnumerable<ProductDto> GetAll()
+        public ActionResult<ProductDto> GetAll()
         {
-            return products;
+            Connection conn = new Connection();
+            products.Clear();
+            try
+            {
+                conn.connection.Open();
+                string sql = "SELECT * FROM PRODUCTS";
+                MySqlCommand cmd = new MySqlCommand(sql,conn.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var cucc = new ProductDto(
+                        reader.GetGuid(0),
+                        reader.GetString(1),
+                        reader.GetInt32(2),
+                        reader.GetDateTime(3)
+                        );
+                    products.Add(cucc);
+                } 
+                conn.connection.Close();
+
+                return Ok(products);
+
+            }
+            catch (Exception sex)
+            {
+                return NotFound(sex);
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<ProductDto> GetById(Guid id) 
         {
-            var product = products.Where(x => x.Id == id).FirstOrDefault();
-
-            if (product == null)
+            Connection conn = new Connection();
+            products.Clear();
+            try
             {
-                return NotFound();
-            }
+                conn.connection.Open();
+                string sql = $"SELECT * FROM PRODUCTS WHERE Id='{id}'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-            return Ok(product);
+                var resoult = new ProductDto(
+                    reader.GetGuid(0),
+                    reader.GetString(1),
+                    reader.GetInt32(2),
+                    reader.GetDateTime(3));
+
+                conn.connection.Close();
+
+                return Ok(resoult);
+
+            }
+            catch (Exception sex)
+            {
+                return NotFound(sex);
+            }
         }
 
         [HttpPost]
@@ -41,8 +78,8 @@ namespace ProductApi.Controllers
         {
             var product = new ProductDto(
                 Guid.NewGuid(),
-                createProduct.ProductName,
-                createProduct.ProductPrice,
+                createProduct.Name,
+                createProduct.Price,
                 DateTimeOffset.UtcNow
                 );
 
@@ -58,8 +95,8 @@ namespace ProductApi.Controllers
 
             var product = existingProduct with
             {
-                ProductName = updateProduct.ProductName,
-                ProductPrice = updateProduct.ProductPrice
+                Name = updateProduct.Name,
+                Price = updateProduct.Price
             };
 
             var index = products.FindIndex(x => x.Id == id);

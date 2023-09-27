@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Git3\\products\\ProductApi\\ProductApi\\ProductApi.csproj": {}
+    "C:\\Git\\MunkaDolog\\ProductApi\\ProductApi\\ProductApi.csproj": {}
   },
   "projects": {
-    "C:\\Git3\\products\\ProductApi\\ProductApi\\ProductApi.csproj": {
+    "C:\\Git\\MunkaDolog\\ProductApi\\ProductApi\\ProductApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git3\\products\\ProductApi\\ProductApi\\ProductApi.csproj",
+        "projectUniqueName": "C:\\Git\\MunkaDolog\\ProductApi\\ProductApi\\ProductApi.csproj",
         "projectName": "ProductApi",
-        "projectPath": "C:\\Git3\\products\\ProductApi\\ProductApi\\ProductApi.csproj",
-        "packagesPath": "C:\\Users\\farka\\.nuget\\packages\\",
-        "outputPath": "C:\\Git3\\products\\ProductApi\\ProductApi\\obj\\",
+        "projectPath": "C:\\Git\\MunkaDolog\\ProductApi\\ProductApi\\ProductApi.csproj",
+        "packagesPath": "C:\\Users\\SzesztaiP\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\MunkaDolog\\ProductApi\\ProductApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\farka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SzesztaiP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,9 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "D:\\Git\\GradeGuru\\projects": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,6 +48,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -4,8 +4,8 @@ namespace ProductApi
 {
     public class Dtos
     {
-        public record ProductDto(Guid Id, string ProductName, int ProductPrice, DateTimeOffset CreateTime);
-        public record CreateProductDto([Required] string ProductName, [Range(0, 10000)] int ProductPrice);
-        public record UpdateProductDto([Required] string ProductName, [Range(0, 10000)] int ProductPrice);
+        public record ProductDto(Guid Id, string Name, int Price, DateTimeOffset CreateTime);
+        public record CreateProductDto(string Name, int Price);
+        public record UpdateProductDto(string Name, int Price);
     }
 }
